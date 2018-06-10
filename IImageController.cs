@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace ImageService {
     public interface IImageController {
         string ExecuteCommand(int commandID, string[] args, out bool result);          // Executing the Command Requet
+        void addICommand(ICommand newCommand, int CommandID);
     }
+
 }
 
