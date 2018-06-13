@@ -39,6 +39,7 @@ namespace WebApplication2.Controllers
             return View(imageModel);
         }
 
+
         public ActionResult Config(int? numHandler)
         {
             if (numHandler != null)
@@ -57,10 +58,19 @@ namespace WebApplication2.Controllers
         public ActionResult Logs()
         {
             ViewBag.Title = "Logs";
-            if (logModel.type != "")
+            return View(logModel);
+        }
+
+        [HttpPost]
+        public ActionResult Logs(LogModel logM)
+        {
+            if (logM != null && logM.type != "")
             {
+                logModel.type = logM.type;
                 logModel.makeLogByType();
-            }   
+            }
+            ViewBag.Title = "Logs";
+
             return View(logModel);
         }
    
